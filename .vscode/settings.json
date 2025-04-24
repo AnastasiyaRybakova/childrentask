@@ -1,0 +1,14 @@
+{
+    "C_Cpp.errorSquiggles": "disabled",
+    "files.associations": {
+        "*.ipp": "cpp",
+        "*.tcc": "cpp",
+        "thread": "cpp",
+        "mutex": "cpp",
+        "core": "cpp",
+        "*.txx": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
+    }
+}

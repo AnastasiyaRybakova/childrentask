@@ -1,0 +1,8 @@
+prefix=/home/kist/catkin_ws/devel
+
+Name: openmanipulator_drawing
+Description: Description of openmanipulator_drawing
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

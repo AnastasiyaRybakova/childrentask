@@ -1,0 +1,16 @@
+<launch>
+  <!-- Launch AR marker detection -->
+  <node name="ar_marker_detection" pkg="ar_track_alvar" type="ar_track_alvar_node" output="screen">
+    <!-- Adjust parameters as needed -->
+    <param name="marker_size" value="0.05" />
+  </node>
+
+  <!-- Launch OpenManipulator control node -->
+  <node name="openmanipulator_pick_and_place" pkg="open_manipulator_pick_and_place" type="pick_and_place.py" output="screen">
+    <param name="robot_name" value="open_manipulator" />
+  </node>
+
+  <!-- Optional: Launch joint state publisher and robot description (if needed) -->
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" />
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" /> 
+</launch>
