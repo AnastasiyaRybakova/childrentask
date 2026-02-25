@@ -42,8 +42,21 @@ The OpenMANIPULATOR-X arm performs marker-based cube manipulation during structu
 ![IMG_4533](https://github.com/user-attachments/assets/1457a1a7-cb88-456a-a646-35aacae43303)
 
 ---
+## To run each task follow the commands below:
+### Pick and Place task
 
-### Drawing Task Output
+    $ roscore
+    $ roslaunch open_manipulator_controller open_manipulator_controller.launch
+    $ roslaunch open_manupulator_ar_marker_pose.launch camera_model:=realsense_d435
+    $ roslaunch open_manipulator_pick_and_place.launch
+
+### Drawing task
+
+    $ roscore
+    $ roslaunch open_manipulator_controller open_manipulator_controller.launch
+    $ rosrun openmanipulator_drawing drawing_task.py
+
+## Drawing Task Output
 
 The robot executes trajectory-based drawing tasks using a mounted marker pen.
 
