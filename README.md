@@ -52,6 +52,45 @@ The robot executes trajectory-based drawing tasks using a mounted marker pen.
 
 Drawing trajectories are generated from predefined Cartesian waypoints and converted into joint-space motion using MoveIt planning.
 
+## Workspace Calibration
+
+For consistent drawing and pick & place performance, the robot workspace must be calibrated:
+
+- The drawing surface (e.g., A4 sheet) is aligned with the robot base coordinate frame. Later we replaced the white sheet by whiteboard.
+- Surface height is set to 0.06 m relative to the robot base.
+- The pen offset from the tool center is 0.025 m.
+- Workspace origin (0,0) corresponds to the lower-left corner of the drawing surface.
+
+Accurate calibration ensures reproducible trajectories and minimizes positional error during execution.
+
+## Motion Planning Overview
+
+This project uses MoveIt! for motion planning:
+
+- Drawing tasks are defined as Cartesian waypoints.
+- Waypoints are converted into joint-space trajectories using MoveIt.
+- Linear interpolation is used between drawing segments for smooth motion.
+- Pick & place tasks reference predefined grasp and placement poses.
+- Gripper actuation is handled via dedicated ROS service calls.
+
+All motion planning is executed in the ROS ecosystem, enabling visualization and debugging in RViz.
+
+## Limitations & Safety
+
+### Limitations
+
+- Drawing precision depends on accurate surface calibration.
+- No dynamic obstacle avoidance is implemented.
+- Marker-based object localization can fail in poor lighting.
+- Drawing and pick & place repeatability may vary without further tuning.
+
+### Safety
+
+- Ensure the workspace is clear of obstacles before execution.
+- Verify joint limits and MoveIt planning scene before running commands.
+- For hardware tests, reduce velocity and acceleration limits appropriately.
+- Use hardware emergency stop during early testing phases.
+
 ## Related Publications
 
 The manipulation and task framework described in this repository is related to the following peer-reviewed works:
